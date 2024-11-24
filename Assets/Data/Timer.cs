@@ -26,4 +26,15 @@ public class Timer : MonoBehaviour
     {
         started = true;
     }
+
+    private IEnumerator TimerCoroutine()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            timer++;
+            timer_text.text = $"{timer}";
+            if(!started) yield break;
+        }
+    }
 }
