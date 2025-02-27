@@ -1,2 +1,0 @@
-Build path: D:/SpeedMath/build
-Build number: 5
