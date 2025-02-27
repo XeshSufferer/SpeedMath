@@ -8,13 +8,6 @@ using UnityEngine.Events;
 public class EventUser : MonoBehaviour
 {
 
-    public UnityEvent OnGameStarted;
+    public GameObject window;
 
-    private void Update()
-    {
-        if(Input.anyKeyDown) OnGameStarted?.Invoke();
-        if(Input.touchCount > 0) OnGameStarted?.Invoke();
-
-
-    }
 }

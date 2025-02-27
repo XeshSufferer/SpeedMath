@@ -25,7 +25,7 @@ namespace Photon.Pun.Demo.Cockpit
                 if (PhotonNetwork.CurrentRoom.PlayerCount != _cache)
                 {
                     _cache = PhotonNetwork.CurrentRoom.PlayerCount;
-                    Text.text = _cache.ToString();
+                    Text.text = (_cache - 1).ToString();
                     this.OnValueChanged();
                 }
             }

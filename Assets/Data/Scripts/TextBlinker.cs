@@ -8,10 +8,12 @@ public class TextBlinker : MonoBehaviour
 {
     [SerializeField] private float blinkDelay;
     private TMP_Text _selfText;
+    private string _chachedText;
 
     private void Start()
     {
         _selfText = gameObject.GetComponent<TMP_Text>();
+        _chachedText = _selfText.text;
         StartCoroutine(BlinkCycle());
     }
 
@@ -20,7 +22,13 @@ public class TextBlinker : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(blinkDelay);
-            _selfText.enabled = !_selfText.enabled;
+            _selfText.text = _chachedText;
+            yield return new WaitForSeconds(blinkDelay);
+            _selfText.text = _chachedText + ".";
+            yield return new WaitForSeconds(blinkDelay);
+            _selfText.text = _chachedText + "..";
+            yield return new WaitForSeconds(blinkDelay);
+            _selfText.text = _chachedText + "...";
         }
     }
 
